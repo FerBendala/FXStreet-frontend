@@ -1,9 +1,9 @@
-@use "./partials/variables" as *;
-@use "./partials/mixins.scss" as m;
-@use "./partials/functions.scss" as f;
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
 
-@import "./partials/fonts";
-@import "./partials/reset";
+@import "fonts";
+@import "reset";
 
 html {
     scroll-behavior: smooth;

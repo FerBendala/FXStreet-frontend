@@ -1,0 +1,43 @@
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
+
+.list {
+    @include m.flex($ai: stretch);
+
+    // Item
+    &__item {
+        @include m.flex($ai: center);
+
+        padding: f.em(24);
+
+        // Separator
+        &:not(:last-child) {
+            border-right: solid f.em(1) $color-gray-200;
+        }
+
+        // Responsive
+        @include m.media(tablet) {
+            padding: f.em(12);
+
+            &:not(:last-child) {
+                border: none;
+            }
+        }
+    }
+
+    // If is vertical
+    &--vertical {
+        @include m.flex($fd: column, $ai: stretch);
+
+        .list {
+
+            // Item
+            &__item {
+                max-width: f.em(111);
+                padding: f.em(16) 0;
+                border: none;
+            }
+        }
+    }
+}

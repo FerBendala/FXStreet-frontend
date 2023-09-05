@@ -1,9 +1,0 @@
-@use "../../assets/scss/partials/variables.scss" as *;
-@use "../../assets/scss/partials/mixins.scss" as m;
-@use "../../assets/scss/partials/functions.scss" as f;
-
-.button {
-    &__icon {
-        font-family: $font-symbols;
-    }
-}

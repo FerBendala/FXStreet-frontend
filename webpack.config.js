@@ -83,9 +83,15 @@ const config = ( env, argv ) => {
                     use: [
                         production
                             ? MiniCssExtractPlugin.loader
-                            : 'style-loader',
-                        'css-loader',
-                        'sass-loader',
+                            : 'style-loader', 'css-loader',
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sassOptions: {
+                                    includePaths: [path.resolve( __dirname, 'src/assets/scss/partials' )],
+                                },
+                            },
+                        },
                     ],
                 },
                 {
@@ -110,6 +116,9 @@ const config = ( env, argv ) => {
         },
         resolve: {
             extensions: ['*', '.js', '.jsx'],
+            alias: {
+                variablesJS: path.resolve( __dirname, 'src', 'assets', 'scss', 'partials', 'variablesJS.module.scss' ),
+            },
         },
         performance: {
             maxEntrypointSize: 512000,

@@ -1,9 +1,22 @@
-@use "../assets/scss/partials/variables.scss" as *;
-@use "../assets/scss/partials/mixins.scss" as m;
-@use "../assets/scss/partials/functions.scss" as f;
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
 
 .layout {
     @include m.grid($gc: f.em(255) minmax(0, 1fr));
 
     height: 100vh;
+
+    background-color: $color-gray-200;
+
+    &__main {
+        &__content {
+            padding: f.em(24);
+        }
+    }
+
+    // Responsive
+    @include m.media(tablet) {
+        display: block;
+    }
 }
