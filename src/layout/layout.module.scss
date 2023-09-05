@@ -2,7 +2,8 @@
 @use "../assets/scss/partials/mixins.scss" as m;
 @use "../assets/scss/partials/functions.scss" as f;
 
-// Main content
-.main {
-    margin-bottom: f.em(80);
+.layout {
+    @include m.grid($gc: f.em(255) minmax(0, 1fr));
+
+    height: 100vh;
 }
