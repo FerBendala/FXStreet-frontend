@@ -1,0 +1,8 @@
+@use "../assets/scss/partials/variables.scss" as *;
+@use "../assets/scss/partials/mixins.scss" as m;
+@use "../assets/scss/partials/functions.scss" as f;
+
+// Main content
+.main {
+    margin-bottom: f.em(80);
+}
