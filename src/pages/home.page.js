@@ -1,21 +1,18 @@
 import useFetchData from '../hooks/use-fetch-data.hook'
 
-import Tabs from '../components/tabs/tabs.component'
+import Post from '../components/post/post.component'
 
 const Home = () => {
     // Fetch Data custom hook
     const { isLoading, posts } = useFetchData()
 
-    return (
-        <>
-            <Tabs />
-            {isLoading ? (
-                <p>Cargando datos...</p>
-            ) : (
-                <pre>{JSON.stringify( posts, null, 2 )}</pre>
-            )}
-        </>
-    )
+    return isLoading
+        ? <p>Cargando datos...</p>
+        : posts.map( ( post, index ) => {
+            return (
+                <Post key={index} post={post} />
+            )
+        } )
 }
 
 export default Home

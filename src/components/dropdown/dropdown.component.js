@@ -1,28 +1,24 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 
 import DropdownPanel from '../dropdown-panel/dropdown-panel.component'
 
 import styles from './dropdown.module.scss'
 
-const Filter = ( { dropdownItems } ) => {
-    const isDropdownVisible = useSelector( state => state.global.isDropdownVisible )
+const Dropdown = ( { dropdownItems, form, icon, title } ) => {
+    const [isDropdownVisible, setIsDropdownVisible] = useState( false )
     const isMobile = useMediaQuery( { maxWidth: 767 } )
-    const filterRef = useRef( null ) // Get reference where is dropdown
-    const dispatch = useDispatch()
+    const dropdownRef = useRef( null ) // Get reference where is dropdown
 
     // Set if dropdown is visible
     const handleDropdown = () => {
-        dispatch( setIsDropdownVisible( !isDropdownVisible ) )
+        setIsDropdownVisible( !isDropdownVisible )
     }
 
     // Manage clicks out of dropdown
     const handleClickOutside = ( event ) => {
-        if ( filterRef.current && !filterRef.current.contains( event.target ) ) {
-            dispatch( setIsDropdownVisible( false ) )
+        if ( dropdownRef.current && !dropdownRef.current.contains( event.target ) ) {
+            setIsDropdownVisible( false )
         }
     }
     useEffect( () => {
@@ -33,48 +29,45 @@ const Filter = ( { dropdownItems } ) => {
     }, [isDropdownVisible] )
 
     return (
-        <div className={styles['filter']} ref={filterRef}>
-            {/* Filter button */}
+        <div className={styles['dropdown']} ref={dropdownRef}>
+            {/* Dropdown button */}
             <button
-                className={styles['filter__button']}
+                className={styles['dropdown__button']}
                 onClick={handleDropdown}
             >
-                {!isMobile
-                    ? <>
-                        <span className={styles['filter__button__small']}>Show:</span>
-                        <span className={styles['filter__button__text']}>All</span>
-                        <span className={
-                            [styles['filter__button__symbol'], styles['symbol']].join( ' ' )
-                        }>
-                            {isDropdownVisible ? 'keyboard_arrow_up' : 'expand_more'}
-                        </span>
-                    </>
-                    : <span className={
-                        [styles['filter__button__symbol'], styles['symbol']].join( ' ' )
-                    }>filter_alt</span>
+                {icon
+                    ? <span className={[
+                        styles['dropdown__button__symbol'],
+                        styles['symbol']
+                    ].join( ' ' )}>{icon}</span>
+                    : !isMobile
+                        ? <>
+                            <span className={styles['dropdown__button__small']}>Show:</span>
+                            <span className={styles['dropdown__button__text']}>All</span>
+                            <span className={[
+                                styles['dropdown__button__symbol'],
+                                styles['dropdown__button__symbol--small'],
+                                styles['symbol']
+                            ].join( ' ' )}>
+                                {isDropdownVisible ? 'keyboard_arrow_up' : 'expand_more'}
+                            </span>
+                        </>
+                        : <span className={
+                            [styles['dropdown__button__symbol'], styles['symbol']].join( ' ' )
+                        }>dropdown_alt</span>
                 }
             </button>
 
             {/* Dropdown */}
-            {isDropdownVisible && <DropdownPanel items={dropdownItems} />}
+            {isDropdownVisible &&
+                <DropdownPanel
+                    items={dropdownItems}
+                    form={form}
+                    title={title}
+                />
+            }
         </div>
     )
 }
 
-export default Filter
-
-
-
-// const items = [
-//     { text: 'I\'m not interested in this author', input: 'radio' },
-//     { text: 'I\'m not interested in this topic', input: 'radio' },
-//     { text: 'I’ve seen too many posts on this topic', input: 'radio' },
-//     { text: 'The information is incorrect', input: 'radio' },
-//     { text: 'I’ve seen this post before', input: 'radio' },
-//     { text: 'Other reasons', input: 'radio' }
-// ]
-// <Dropdown
-//     title='Tell us why:'
-//     items={items}
-//     form
-// />
+export default Dropdown

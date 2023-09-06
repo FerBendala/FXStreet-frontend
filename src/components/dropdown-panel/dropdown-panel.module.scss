@@ -11,6 +11,8 @@
 
     background-color: $color-white;
 
+    z-index: 1;
+
     // Header
     &__header {
         @include m.flex($ai: center, $gap: f.em(8));
@@ -21,8 +23,6 @@
 
         &__symbol {
             font-size: f.em(21);
-        }
-        &__text {
         }
     }
 

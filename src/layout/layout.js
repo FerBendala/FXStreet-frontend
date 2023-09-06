@@ -5,6 +5,7 @@ import Aside from '../components/aside/aside.component'
 import Header from '../components/header/header.component'
 import HeaderMobile from '../components/header-mobile/header-mobile.component'
 import Widget from '../components/widget/widget.component'
+import Tabs from '../components/tabs/tabs.component'
 
 import styles from './layout.module.scss'
 
@@ -18,6 +19,7 @@ const Layout = () => {
                 {!isMobile ? <Header /> : <HeaderMobile />}
                 <section className={styles['layout__main__content']}>
                     <div className={styles['content']}>
+                        <Tabs />
                         <Outlet />
                     </div>
                     {!isMobile && <Widget />}

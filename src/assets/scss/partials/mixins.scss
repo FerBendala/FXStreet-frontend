@@ -1,6 +1,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
+@use "functions" as f;
 
 // Font Face
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
@@ -444,8 +445,9 @@ $max-container-width-xl: 1224px;
                 background-color: $thumb;
                 border-radius: $size;
             }
-
+            
             &-track {
+                width: $size + 2;
                 background-color: $track;
             }
         }

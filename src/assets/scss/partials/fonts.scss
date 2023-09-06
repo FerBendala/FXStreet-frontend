@@ -11,16 +11,11 @@ $font-weights: (
 );
 
 // Roboto
-@each $weight, $name in $font-weights {
+@each $weight,
+$name in $font-weights {
     @include m.font-face("Roboto", "../fonts/Roboto/Roboto-#{$name}", $weight, normal, woff2 woff);
     @include m.font-face("Roboto", "../fonts/Roboto/Roboto-#{$name}Italic", $weight, italic, woff2 woff);
 }
 
 // Material Symbols
-@include m.font-face(
-    "MaterialSymbolsOutlined",
-    "../fonts/MaterialSymbolsOutlined/MaterialSymbolsOutlined",
-    normal,
-    italic,
-    woff2
-);
+@include m.font-face("MaterialSymbolsOutlined", "../fonts/MaterialSymbolsOutlined/MaterialSymbolsOutlined", normal, normal, woff2);

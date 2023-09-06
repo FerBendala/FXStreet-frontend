@@ -2,18 +2,21 @@
 @use "mixins" as m;
 @use "functions" as f;
 
-.filter {
+.dropdown {
     @include m.position(relative);
     @include m.flex($ai: center, $gap: f.em(8));
 
     // Button
     &__button {
-        @include m.flex($ai: baseline, $gap: f.em(8));
+        @include m.flex($ai: center, $gap: f.em(8));
 
         border: none;
 
         background-color: transparent;
         color: $color-black;
+
+        font-size: f.em(16);
+        font-variation-settings: "FILL" 0;
 
         cursor: pointer;
         transition: $transition;
@@ -32,12 +35,17 @@
             @include m.position(relative, $b: f.em(1));
             @include m.flex-child($as: center);
 
-            font-size: f.em(21);
+            font-size: f.em(25);
+
+            &--small {
+                font-size: f.em(21);
+            }
         }
 
         // Hover
         &:hover {
             color: $color-orange-100;
+            font-variation-settings: "FILL" 1;
         }
 
         // Responsive

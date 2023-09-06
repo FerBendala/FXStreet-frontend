@@ -32,22 +32,6 @@ const DropdownPanel = ( { items, title, form } ) => {
                     )
                 }
             </div>
-
-            {/* <ul className={styles['dropdown__list']}>
-                {items.map( ( item, index ) => (
-                    <li
-                        key={index}
-                        className={styles['dropdown__list__item']}
-                    >
-                        <span className={[styles['item__symbol'], styles['symbol']].join( ' ' )}>
-                            {item.symbol}
-                        </span>
-                        <span className={styles['item__text']}>
-                            {item.text}
-                        </span>
-                    </li>
-                ) )}
-            </ul> */}
         </div>
     )
 }
