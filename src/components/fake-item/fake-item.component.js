@@ -1,11 +1,19 @@
 import styles from './fake-item.module.scss'
 
 const FakeItem = ( { color, type = 'all', width } ) => {
-    // Set classnames to show a circle a line or both
-    const classNames = type === 'all' ? ['circle', 'line'] : [type]
+    // Define the order of classes based on the type
+    const classOrder = {
+        all: ['circle', 'line'],
+        'all-reverse': ['line', 'circle'],
+        line: ['line'],
+        circle: ['circle'],
+    }
 
-    // Set width to lines (circles have always same size)
-    const setWidth = item =>
+    // Set classnames based on the type
+    const classNames = classOrder[type] || []
+
+    // Set width for lines (circles have always the same size)
+    const setWidth = ( item ) =>
         ( type === 'all' && item === 'line' ) || ( item === 'line' && width )
 
     return (
@@ -16,7 +24,7 @@ const FakeItem = ( { color, type = 'all', width } ) => {
                     className={styles[`fake-item__${item}`]}
                     style={{
                         backgroundColor: color,
-                        width: setWidth( item ) ? width : 'auto'
+                        width: setWidth( item ) ? width : 'auto',
                     }}
                 ></span>
             ) )}

@@ -1,0 +1,23 @@
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
+
+.tabs {
+    @include m.position(sticky, $t: 0);
+    @include m.flex($gap: f.em(16));
+
+    width: 100%;
+    padding-bottom: f.em(16);
+    box-shadow: 0 f.em(-8) 0 $color-gray-200;
+
+    background-color: $color-gray-200;
+
+    > *:last-child {
+        margin-left: auto;
+    }
+
+    // Symbol
+    .symbol {
+        font-family: $font-symbols;
+    }
+}

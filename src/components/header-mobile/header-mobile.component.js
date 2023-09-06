@@ -3,13 +3,13 @@ import List from '../list/list.component'
 import LogoFXStreet from '../../assets/images/logo-fxstreet-m.svg'
 
 import variables from 'variablesJS'
-import styles from './mobile-header.module.scss'
+import styles from './header-mobile.module.scss'
 
-const MobileHeader = () => {
+const HeaderMobile = () => {
     // List Options
     const types = [
-        ['circle', variables['gray-300']],
-        ['circle', variables['gray-300']]
+        { type: 'circle', color: variables['gray-300'] },
+        { type: 'circle', color: variables['gray-300'] }
     ]
 
     return (
@@ -22,10 +22,10 @@ const MobileHeader = () => {
                 />
 
                 {/* List Options */}
-                <List content={types} />
+                <List fakeItems={types} />
             </nav>
         </header>
     )
 }
 
-export default MobileHeader
+export default HeaderMobile

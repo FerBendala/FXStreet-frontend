@@ -7,10 +7,10 @@ import styles from './header.module.scss'
 const Header = () => {
     // List Options
     const types = [
-        ['line', variables['orange-100'], 136],
-        ['circle', variables['gray-500']],
-        ['circle', variables['gray-500']],
-        ['all', variables['gray-500']]
+        { type: 'line', color: variables['orange-100'], width: 136 },
+        { type: 'circle', color: variables['gray-500'] },
+        { type: 'circle', color: variables['gray-500'] },
+        { type: 'all', color: variables['gray-500'] }
     ]
 
     return (
@@ -22,7 +22,7 @@ const Header = () => {
                 />
 
                 {/* List Options */}
-                <List content={types} />
+                <List fakeItems={types} />
             </nav>
         </header>
     )

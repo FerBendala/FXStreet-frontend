@@ -1,7 +1,7 @@
 import FakeItem from '../fake-item/fake-item.component'
 import styles from './list.module.scss'
 
-const List = ( { content, direction } ) => {
+const List = ( { fakeItems, items, direction } ) => {
     // Set classnames
     const className = direction === 'vertical'
         ? [styles['list'], styles['list--vertical']].join( ' ' )
@@ -9,16 +9,29 @@ const List = ( { content, direction } ) => {
 
     return (
         <ul className={className}>
-            {content.map( ( type, index ) => (
+            {fakeItems?.map( ( item, index ) => (
                 <li
                     key={index}
                     className={styles['list__item']}
                 >
                     <FakeItem
-                        type={type[0]}
-                        color={type[1]}
-                        width={type[2]}
+                        type={item.type}
+                        color={item.color}
+                        width={item.width}
                     />
+                </li>
+            ) )}
+            {items?.map( ( item, index ) => (
+                <li
+                    key={index}
+                    className={styles['list__item']}
+                >
+                    <span className={[styles['item__symbol'], styles['symbol']].join( ' ' )}>
+                        {item.symbol}
+                    </span>
+                    <span className={styles['item__text']}>
+                        {item.text}
+                    </span>
                 </li>
             ) )}
         </ul>

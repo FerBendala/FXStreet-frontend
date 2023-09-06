@@ -11,12 +11,28 @@
 
     &__main {
         &__content {
+            @include m.grid($gc: minmax(0, 1fr) minmax(0, f.em(412)), $gap: f.em(25));
+
+            height: calc(100vh - #{f.em(65)});
             padding: f.em(24);
+
+            .content {
+                @include m.scrollbar($thumb: $color-gray-400, $track: transparent, $size: f.em(5));
+
+                overflow: hidden auto;
+            }
         }
     }
 
     // Responsive
     @include m.media(tablet) {
         display: block;
+
+        &__main {
+            &__content {
+                @include m.grid($gc: minmax(0, 1fr));
+                height: calc(100vh - #{f.em(55)});
+            }
+        }
     }
 }

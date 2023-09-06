@@ -1,0 +1,39 @@
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
+
+.dropdown {
+    @include m.position(absolute, $t: 100%, $r: 0);
+
+    width: max-content;
+    border: solid f.em(1) $color-gray-300;
+    box-shadow: $box-shadow;
+
+    background-color: $color-white;
+
+    // Header
+    &__header {
+        @include m.flex($ai: center, $gap: f.em(8));
+        padding: f.em(16) f.em(18);
+
+        color: $color-black;
+        background-color: $color-gray-200;
+
+        &__symbol {
+            font-size: f.em(21);
+        }
+        &__text {
+        }
+    }
+
+    // Dropdown list
+    &__list {
+        padding: f.em(18);
+        @include m.flex($fd: column, $gap: f.em(16));
+    }
+
+    // Symbol
+    .symbol {
+        font-family: $font-symbols;
+    }
+}

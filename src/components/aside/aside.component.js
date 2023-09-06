@@ -8,11 +8,11 @@ import styles from './aside.module.scss'
 const Aside = () => {
     // List Options
     const types = [
-        ['line', variables['white'], 111],
-        ['line', variables['gray-300'], 111],
-        ['line', variables['gray-300'], 111],
-        ['line', variables['gray-300'], 111],
-        ['line', variables['gray-300'], 111]
+        { type: 'line', color: variables['white'], width: 111 },
+        { type: 'line', color: variables['gray-300'], width: 111, },
+        { type: 'line', color: variables['gray-300'], width: 111, },
+        { type: 'line', color: variables['gray-300'], width: 111, },
+        { type: 'line', color: variables['gray-300'], width: 111 }
     ]
 
     return (
@@ -25,7 +25,7 @@ const Aside = () => {
             />
 
             {/* List Options */}
-            <List content={types} direction='vertical' />
+            <List fakeItems={types} direction='vertical' />
         </aside>
     )
 }
