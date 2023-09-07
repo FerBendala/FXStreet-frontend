@@ -1,0 +1,16 @@
+@use "variables" as *;
+@use "mixins" as m;
+@use "functions" as f;
+
+.home {
+    @include m.scrollbar($thumb: $color-gray-400, $track: transparent, $size: f.em(5));
+
+    overflow: hidden auto;
+    padding-right: f.em(5);
+
+    // Responsive
+    @include m.media(laptop) {
+        overflow: visible;
+        padding: 0;
+    }
+}

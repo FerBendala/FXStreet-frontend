@@ -13,7 +13,7 @@
         border: none;
 
         background-color: transparent;
-        color: $color-black;
+        color: $color-gray-500;
 
         font-size: f.em(16);
         font-variation-settings: "FILL" 0;
@@ -21,40 +21,16 @@
         cursor: pointer;
         transition: $transition;
 
-        &__small {
-            font-size: f.em(14);
-            font-weight: 400;
-        }
-
-        &__text {
-            font-size: f.em(18);
-            font-weight: 700;
-        }
-
         &__symbol {
             @include m.position(relative, $b: f.em(1));
             @include m.flex-child($as: center);
 
             font-size: f.em(25);
-
-            transition: inherit;
-
-            &--small {
-                font-size: f.em(21);
-            }
         }
 
         // Hover
         &:hover {
             color: $color-orange-100;
-            font-variation-settings: "FILL" 1;
-        }
-
-        // Responsive
-        @include m.media(laptop) {
-            color: $color-gray-500;
-
-            font-size: f.em(21);
         }
     }
 

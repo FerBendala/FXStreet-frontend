@@ -9,37 +9,7 @@
 
     background-color: $color-white;
 
-    z-index: 3;
-
-    // Position
-    &--top {
-        @include m.position(absolute, $b: 100%, $r: 50%);
-        transform: translate(50%, 0);
-    }
-    &--top-left {
-        @include m.position(absolute, $b: 100%, $r: 0);
-    }
-    &--top-right {
-        @include m.position(absolute, $b: 100%, $l: 0);
-    }
-
-    &--bottom {
-        @include m.position(absolute, $t: 100%, $r: 50%);
-        transform: translate(50%, 0);
-    }
-    &--bottom-left {
-        @include m.position(absolute, $t: 100%, $r: 0);
-    }
-    &--bottom-right {
-        @include m.position(absolute, $t: 100%, $l: 0);
-    }
-
-    &--left {
-        @include m.position(absolute, $r: 100%);
-    }
-    &--right {
-        @include m.position(absolute, $l: 100%);
-    }
+    z-index: 0;
 
     // Header
     &__header {
@@ -49,8 +19,19 @@
         color: $color-black;
         background-color: $color-gray-200;
 
-        &__symbol {
-            font-size: f.em(21);
+        &__button {
+            padding: 0;
+            border: none;
+
+            background-color: transparent;
+            color: $color-black;
+
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                color: $color-orange-100;
+            }
         }
     }
 
@@ -63,5 +44,38 @@
     // Symbol
     .symbol {
         font-family: $font-symbols;
+        font-size: f.em(21);
+    }
+
+    // Position
+    &--top {
+        @include m.position(absolute, $b: 100%, $r: 50%);
+        transform: translate(50%, 0);
+        &-left {
+            @include m.position(absolute, $b: 100%, $r: 100%);
+            transform: translate(25%, 0);
+        }
+        &-right {
+            @include m.position(absolute, $b: 100%, $l: 0);
+        }
+    }
+
+    &--bottom {
+        @include m.position(absolute, $t: 100%, $r: 50%);
+        transform: translate(50%, 0);
+        &-left {
+            @include m.position(absolute, $t: 100%, $r: 0);
+        }
+        &-right {
+            @include m.position(absolute, $t: 100%, $l: 0);
+        }
+    }
+
+    &--left {
+        @include m.position(absolute, $r: 100%);
+    }
+
+    &--right {
+        @include m.position(absolute, $l: 100%);
     }
 }

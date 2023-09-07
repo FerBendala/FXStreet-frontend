@@ -1,11 +1,20 @@
 import { useState } from 'react'
 import styles from './form.module.scss'
+import { useDispatch } from 'react-redux'
+import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 
-const Form = ( { items } ) => {
+const Form = ( { items, dropdownId } ) => {
     const [selectedItem, setSelectedItem] = useState( null )
+    const dispatch = useDispatch()
 
-    const handleRadioChange = ( index ) => setSelectedItem( index )
-    const handleSubmit = ( event ) => event.preventDefault()
+    const handleRadioChange = ( index ) => {
+        setSelectedItem( index )
+    }
+
+    const handleSubmit = ( event ) => {
+        event.preventDefault()
+        dispatch(setIsDropdownVisible({ dropdownId, isVisible: false } ))
+    }
 
     return (
         <form

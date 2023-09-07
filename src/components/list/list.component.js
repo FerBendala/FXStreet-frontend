@@ -1,11 +1,18 @@
+import { useDispatch } from 'react-redux'
 import FakeItem from '../fake-item/fake-item.component'
 import styles from './list.module.scss'
+import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 
-const List = ( { fakeItems, items, direction } ) => {
+const List = ( { fakeItems, items, direction, dropdownId } ) => {
+    const dispatch = useDispatch()
     // Set classnames
     const className = direction === 'vertical'
         ? [styles['list'], styles['list--vertical']].join( ' ' )
         : styles['list']
+
+    const handleClick = () => {
+        dispatch(setIsDropdownVisible({ dropdownId, isVisible: false } ))
+    }
 
     return (
         <ul className={className}>
@@ -25,6 +32,7 @@ const List = ( { fakeItems, items, direction } ) => {
                 <li
                     key={index}
                     className={styles['list__item']}
+                    onClick={handleClick}
                 >
                     <span className={[styles['item__symbol'], styles['symbol']].join( ' ' )}>
                         {item.symbol}

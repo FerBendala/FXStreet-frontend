@@ -1,9 +1,18 @@
+import { useDispatch } from 'react-redux'
+import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
+
 import List from '../list/list.component'
 import Form from '../form/form.component'
 
 import styles from './dropdown-panel.module.scss'
 
-const DropdownPanel = ( { items, title, form, position } ) => {
+const DropdownPanel = ( { items, title, form, position, dropdownId } ) => {
+    const dispatch = useDispatch()
+
+    const closeDropdown = () => {
+        dispatch( setIsDropdownVisible( { dropdownId, isVisible: false } ) )
+    }
+
     return (
         <div className={[
             styles['dropdown'],
@@ -12,12 +21,15 @@ const DropdownPanel = ( { items, title, form, position } ) => {
             {/* Header if exists */}
             {title &&
                 <header className={styles['dropdown__header']}>
-                    <span className={[
-                        styles['dropdown__header__symbol'],
-                        styles['symbol']
-                    ].join( ' ' )}>
+                    <button
+                        className={[
+                            styles['dropdown__header__button'],
+                            styles['symbol']
+                        ].join( ' ' )}
+                        onClick={closeDropdown}
+                    >
                         arrow_back
-                    </span>
+                    </button>
                     <span className={styles['dropdown__header__text']}>{title}</span>
                 </header>
             }
@@ -29,9 +41,13 @@ const DropdownPanel = ( { items, title, form, position } ) => {
                         <List
                             items={items}
                             direction='vertical'
+                            dropdownId={dropdownId}
                         />
                     ) : (
-                        <Form items={items} />
+                        <Form
+                            items={items}
+                            dropdownId={dropdownId}
+                        />
                     )
                 }
             </div>

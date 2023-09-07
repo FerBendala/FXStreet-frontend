@@ -15,7 +15,12 @@ const Button = ( { symbol, text, onClick, active } ) => {
                     styles['button__symbol'],
                 ].join( ' ' )}>{symbol}</span>
             }
-            {text && <span className={styles['button__text']}>{text}</span>}
+            {text &&
+                <span className={styles['button__text']}>
+                    {text}
+                    <span>{active && 'd!'}</span>
+                </span>
+            }
         </button>
     )
 }

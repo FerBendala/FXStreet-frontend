@@ -1,13 +1,13 @@
-import { useState } from 'react'
-
 import Tab from '../tab/tab.component'
 import Dropdown from '../dropdown/dropdown.component'
 
 import styles from './tabs.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { setActiveTab } from '../../redux/reducers/global-reducer'
 
 const Tabs = () => {
-    // Estado local para almacenar el último tab clickeado
-    const [activeTab, setActiveTab] = useState( 'Latest' )
+    const activeTab = useSelector( state => state.global.activeTab )
+    const dispatch = useDispatch()
 
     // Filter
     const dropdownItems = [
@@ -17,7 +17,7 @@ const Tabs = () => {
 
     // Función para manejar el clic en un tab
     const handleTabClick = ( text ) => {
-        setActiveTab( text )
+        dispatch( setActiveTab( text ) )
     }
 
     return (

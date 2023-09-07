@@ -13,13 +13,6 @@
 
             height: calc(100vh - #{f.em(65)});
             padding: f.em(24);
-
-            .content {
-                @include m.scrollbar($thumb: $color-gray-400, $track: transparent, $size: f.em(5));
-
-                overflow: hidden auto;
-                padding-right: f.em(5);
-            }
         }
     }
 
@@ -33,11 +26,6 @@
             &__content {
                 @include m.grid($gc: minmax(0, 1fr));
                 height: auto;
-
-                .content {
-                    overflow: visible;
-                    padding: 0;
-                }
             }
         }
     }

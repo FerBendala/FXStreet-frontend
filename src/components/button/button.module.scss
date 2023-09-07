@@ -20,11 +20,29 @@
 
     .button {
         &__text {
+            min-width: f.em(48);
+
             font-size: f.em(18);
+            text-align: left;
+
+            transition: inherit;
+
+            span {
+                opacity: 0;
+
+                color: transparent;
+
+                transition: inherit;
+            }
+        }
+
+        &__symbol {
+            transition: inherit;
         }
     }
 
     &:last-of-type {
+
         &:hover,
         &.active {
             color: $color-green-100;
@@ -34,12 +52,25 @@
     &:hover,
     &.active {
         color: $color-red-100;
-        font-variation-settings: "FILL" 1;
     }
 
     &.active {
-        .button__symbol {
-            animation: bounce 1s ease 1;
+        .button {
+            &__text {
+                span {
+                    display: inline-block;
+                    opacity: 1;
+
+                    color: inherit;
+                }
+            }
+            
+            &__symbol {
+                font-variation-settings: "FILL" 1;
+                
+                animation: bounce 0.88s ease 1;
+                animation-delay: 0.15s;
+            }
         }
     }
 
