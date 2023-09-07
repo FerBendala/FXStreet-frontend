@@ -2,8 +2,9 @@
 @use "mixins" as m;
 @use "functions" as f;
 
-.info {
+.widget {
     @include m.flex($fd: column, $gap: f.em(24));
+    overflow: hidden;
 
     &__positive {
         @include m.flex($fd: column);

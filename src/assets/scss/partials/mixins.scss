@@ -356,42 +356,42 @@ $max-width-xl: 1281px;
 
 @mixin media($size) {
     // For container @media
-    @if $size ==xs {
+    @if $size == xs {
         @media (max-width: ($max-width-sm - 1)) {
             @content;
         }
-    } @else if $size ==sm {
+    } @else if $size == sm {
         @media (min-width: $max-width-sm) {
             @content;
         }
-    } @else if $size ==md {
+    } @else if $size == md {
         @media (min-width: $max-width-md) {
             @content;
         }
-    } @else if $size ==lg {
+    } @else if $size == lg {
         @media (min-width: $max-width-lg) {
             @content;
         }
-    } @else if $size ==xl {
+    } @else if $size == xl {
         @media (min-width: $max-width-xl) {
             @content;
         }
     }
 
     // For content @media
-    @if $size ==phone {
+    @if $size == phone {
         @media (max-width: ($max-width-sm - 1)) {
             @content;
         }
-    } @else if $size ==tablet {
+    } @else if $size == tablet {
         @media (max-width: ($max-width-md - 1)) {
             @content;
         }
-    } @else if $size ==laptop {
+    } @else if $size == laptop {
         @media (max-width: ($max-width-lg - 1)) {
             @content;
         }
-    } @else if $size ==desktop {
+    } @else if $size == desktop {
         @media (max-width: ($max-width-xl - 1)) {
             @content;
         }
@@ -445,7 +445,7 @@ $max-container-width-xl: 1224px;
                 background-color: $thumb;
                 border-radius: $size;
             }
-            
+
             &-track {
                 width: $size + 2;
                 background-color: $track;

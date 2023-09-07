@@ -5,8 +5,8 @@ import styles from './widget.module.scss'
 
 const Widget = () => {
     return (
-        <div className={styles['info']}>
-            <div className={styles['info__positive']}>
+        <div className={styles['widget']}>
+            <div className={styles['widget__positive']}>
                 <FakeItem
                     type='line'
                     width='100%'
@@ -18,7 +18,7 @@ const Widget = () => {
                     color={variables['white']}
                 />
             </div>
-            <div className={styles['info__negative']}>
+            <div className={styles['widget__negative']}>
                 <FakeItem
                     type='all-reverse'
                     width={109}

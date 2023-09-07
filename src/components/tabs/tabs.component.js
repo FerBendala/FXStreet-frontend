@@ -34,7 +34,11 @@ const Tabs = () => {
             />
 
             {/* Filter */}
-            <Dropdown dropdownItems={dropdownItems} />
+            <Dropdown
+                dropdownItems={dropdownItems}
+                position='bottom-left'
+                dropdownId='header'
+            />
         </div>
     )
 }

@@ -3,15 +3,43 @@
 @use "functions" as f;
 
 .dropdown {
-    @include m.position(absolute, $t: 100%, $r: 0);
-
     width: max-content;
     border: solid f.em(1) $color-gray-300;
     box-shadow: $box-shadow;
 
     background-color: $color-white;
 
-    z-index: 1;
+    z-index: 3;
+
+    // Position
+    &--top {
+        @include m.position(absolute, $b: 100%, $r: 50%);
+        transform: translate(50%, 0);
+    }
+    &--top-left {
+        @include m.position(absolute, $b: 100%, $r: 0);
+    }
+    &--top-right {
+        @include m.position(absolute, $b: 100%, $l: 0);
+    }
+
+    &--bottom {
+        @include m.position(absolute, $t: 100%, $r: 50%);
+        transform: translate(50%, 0);
+    }
+    &--bottom-left {
+        @include m.position(absolute, $t: 100%, $r: 0);
+    }
+    &--bottom-right {
+        @include m.position(absolute, $t: 100%, $l: 0);
+    }
+
+    &--left {
+        @include m.position(absolute, $r: 100%);
+    }
+    &--right {
+        @include m.position(absolute, $l: 100%);
+    }
 
     // Header
     &__header {

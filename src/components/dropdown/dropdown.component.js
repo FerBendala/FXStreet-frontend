@@ -1,32 +1,41 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import DropdownPanel from '../dropdown-panel/dropdown-panel.component'
 
 import styles from './dropdown.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 
-const Dropdown = ( { dropdownItems, form, icon, title } ) => {
-    const [isDropdownVisible, setIsDropdownVisible] = useState( false )
-    const isMobile = useMediaQuery( { maxWidth: 767 } )
+const Dropdown = ( { dropdownItems, form, symbol, title, position, dropdownId } ) => {
+    const isDropdownVisible = useSelector( state => state.global.dropdowns[dropdownId] || false )
+
+    const isMobile = useMediaQuery( { maxWidth: 992 } )
     const dropdownRef = useRef( null ) // Get reference where is dropdown
+    const dispatch = useDispatch()
+
+    useEffect( () => {
+        if ( isDropdownVisible ) {
+            document.addEventListener( 'mousedown', handleClickOutside )
+        } else {
+            document.removeEventListener( 'mousedown', handleClickOutside )
+        }
+
+        return () =>
+            document.removeEventListener( 'mousedown', handleClickOutside )
+    }, [isDropdownVisible] )
 
     // Set if dropdown is visible
     const handleDropdown = () => {
-        setIsDropdownVisible( !isDropdownVisible )
+        dispatch( setIsDropdownVisible( { dropdownId, isVisible: !isDropdownVisible } ) )
     }
 
     // Manage clicks out of dropdown
     const handleClickOutside = ( event ) => {
         if ( dropdownRef.current && !dropdownRef.current.contains( event.target ) ) {
-            setIsDropdownVisible( false )
+            dispatch( setIsDropdownVisible( { dropdownId, isVisible: false } ) )
         }
     }
-    useEffect( () => {
-        if ( isDropdownVisible ) { document.addEventListener( 'mousedown', handleClickOutside ) }
-        else { document.removeEventListener( 'mousedown', handleClickOutside ) }
-
-        return () => document.removeEventListener( 'mousedown', handleClickOutside )
-    }, [isDropdownVisible] )
 
     return (
         <div className={styles['dropdown']} ref={dropdownRef}>
@@ -35,11 +44,11 @@ const Dropdown = ( { dropdownItems, form, icon, title } ) => {
                 className={styles['dropdown__button']}
                 onClick={handleDropdown}
             >
-                {icon
+                {symbol
                     ? <span className={[
                         styles['dropdown__button__symbol'],
                         styles['symbol']
-                    ].join( ' ' )}>{icon}</span>
+                    ].join( ' ' )}>{symbol}</span>
                     : !isMobile
                         ? <>
                             <span className={styles['dropdown__button__small']}>Show:</span>
@@ -54,7 +63,7 @@ const Dropdown = ( { dropdownItems, form, icon, title } ) => {
                         </>
                         : <span className={
                             [styles['dropdown__button__symbol'], styles['symbol']].join( ' ' )
-                        }>dropdown_alt</span>
+                        }>filter_alt</span>
                 }
             </button>
 
@@ -64,6 +73,7 @@ const Dropdown = ( { dropdownItems, form, icon, title } ) => {
                     items={dropdownItems}
                     form={form}
                     title={title}
+                    position={position}
                 />
             }
         </div>

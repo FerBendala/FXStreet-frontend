@@ -3,9 +3,12 @@ import Form from '../form/form.component'
 
 import styles from './dropdown-panel.module.scss'
 
-const DropdownPanel = ( { items, title, form } ) => {
+const DropdownPanel = ( { items, title, form, position } ) => {
     return (
-        <div className={styles['dropdown']}>
+        <div className={[
+            styles['dropdown'],
+            styles[`dropdown--${position}`],
+        ].join( ' ' )}>
             {/* Header if exists */}
             {title &&
                 <header className={styles['dropdown__header']}>

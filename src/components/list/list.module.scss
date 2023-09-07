@@ -17,7 +17,7 @@
         }
 
         // Responsive
-        @include m.media(tablet) {
+        @include m.media(laptop) {
             padding: f.em(12);
 
             &:not(:last-child) {

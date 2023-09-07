@@ -10,7 +10,7 @@ import Tabs from '../components/tabs/tabs.component'
 import styles from './layout.module.scss'
 
 const Layout = () => {
-    const isMobile = useMediaQuery( { maxWidth: 767 } )
+    const isMobile = useMediaQuery( { maxWidth: 991 } )
 
     return (
         <div className={styles['layout']}>
@@ -22,7 +22,7 @@ const Layout = () => {
                         <Tabs />
                         <Outlet />
                     </div>
-                    {!isMobile && <Widget />}
+                    <Widget />
                 </section>
             </main>
         </div>

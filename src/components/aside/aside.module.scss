@@ -13,7 +13,7 @@
     }
 
     // Responsive
-    @include m.media(tablet) {
+    @include m.media(laptop) {
         display: none;
     }
 }

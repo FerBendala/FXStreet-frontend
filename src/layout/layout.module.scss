@@ -7,11 +7,9 @@
 
     height: 100vh;
 
-    background-color: $color-gray-200;
-
     &__main {
         &__content {
-            @include m.grid($gc: minmax(0, 1fr) minmax(0, f.em(412)), $gap: f.em(25));
+            @include m.grid($gc: minmax(f.em(500), 1fr) minmax(0, f.em(412)), $gap: f.em(20));
 
             height: calc(100vh - #{f.em(65)});
             padding: f.em(24);
@@ -20,18 +18,26 @@
                 @include m.scrollbar($thumb: $color-gray-400, $track: transparent, $size: f.em(5));
 
                 overflow: hidden auto;
+                padding-right: f.em(5);
             }
         }
     }
 
     // Responsive
-    @include m.media(tablet) {
+    @include m.media(laptop) {
         display: block;
+        height: auto;
 
         &__main {
+            height: auto;
             &__content {
                 @include m.grid($gc: minmax(0, 1fr));
-                height: calc(100vh - #{f.em(55)});
+                height: auto;
+
+                .content {
+                    overflow: visible;
+                    padding: 0;
+                }
             }
         }
     }

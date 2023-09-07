@@ -37,6 +37,8 @@
 
             font-size: f.em(25);
 
+            transition: inherit;
+
             &--small {
                 font-size: f.em(21);
             }
@@ -49,7 +51,7 @@
         }
 
         // Responsive
-        @include m.media(tablet) {
+        @include m.media(laptop) {
             color: $color-gray-500;
 
             font-size: f.em(21);

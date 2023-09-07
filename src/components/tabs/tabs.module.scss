@@ -8,9 +8,11 @@
 
     width: 100%;
     padding-bottom: f.em(16);
-    box-shadow: 0 f.em(-8) 0 $color-gray-200;
+    box-shadow: 0 f.em(-32) 0 $color-gray-200;
 
     background-color: $color-gray-200;
+
+    z-index: 2;
 
     > *:last-child {
         margin-left: auto;
@@ -19,5 +21,9 @@
     // Symbol
     .symbol {
         font-family: $font-symbols;
+    }
+
+    @include m.media(laptop) {
+        @include m.position(sticky, $t: f.em(79));
     }
 }

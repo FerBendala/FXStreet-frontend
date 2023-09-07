@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    isLoading: true
+    isLoading: true,
+    dropdowns: {}
 }
 
 const globalSlice = createSlice( {
@@ -10,12 +11,17 @@ const globalSlice = createSlice( {
     reducers: {
         setIsLoading ( state, action ) {
             state.isLoading = action.payload
+        },
+        setIsDropdownVisible ( state, action ) {
+            const { dropdownId, isVisible } = action.payload
+            state.dropdowns[dropdownId] = isVisible
         }
     },
 } )
 
 export const {
-    setIsLoading
+    setIsLoading,
+    setIsDropdownVisible
 } = globalSlice.actions
 
 export default globalSlice.reducer
