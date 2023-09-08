@@ -7,8 +7,7 @@
     @include m.flex($gap: f.em(16));
 
     width: 100%;
-    padding-bottom: f.em(16);
-    box-shadow: 0 f.em(-32) 0 $color-gray-200;
+    padding: f.em(24) 0 f.em(16) f.em(24);
 
     background-color: $color-gray-200;
 
@@ -24,6 +23,8 @@
     }
 
     @include m.media(laptop) {
-        @include m.position(sticky, $t: f.em(79));
+        @include m.position(sticky, $t: f.em(55));
+
+        padding: f.em(24) f.em(16) f.em(16);
     }
 }

@@ -42,7 +42,6 @@
     }
 
     &:last-of-type {
-
         &:hover,
         &.active {
             color: $color-green-100;
@@ -64,10 +63,10 @@
                     color: inherit;
                 }
             }
-            
+
             &__symbol {
                 font-variation-settings: "FILL" 1;
-                
+
                 animation: bounce 0.88s ease 1;
                 animation-delay: 0.15s;
             }

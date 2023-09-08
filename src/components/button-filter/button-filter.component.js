@@ -3,28 +3,28 @@ import { useMediaQuery } from 'react-responsive'
 import styles from './button-filter.module.scss'
 
 const FilterIcon = ( { isDropdownVisible, onClick } ) => {
-    const isMobile = useMediaQuery( { maxWidth: 992 } )
+    // Get media query to define component content
+    const showTextAndSymbol = useMediaQuery( { maxWidth: 992 } )
+
+    // Symbol class and type
+    const symbolClass = `${styles['filter-icon__symbol']} ${styles['symbol']}`
+    const chevronSymbol = isDropdownVisible ? 'keyboard_arrow_up' : 'expand_more'
 
     return (
         <button
             className={styles['filter-icon']}
             onClick={onClick}
         >
-            {!isMobile
-                ? <>
-                    <span className={styles['filter-icon__small']}>Show:</span>
-                    <span className={styles['text']}>All</span>
-                    <span className={[
-                        styles['filter-icon__symbol'],
-                        styles['filter-icon__symbol--small'],
-                        styles['symbol']
-                    ].join( ' ' )}>
-                        {isDropdownVisible ? 'keyboard_arrow_up' : 'expand_more'}
-                    </span>
-                </>
-                : <span className={
-                    [styles['filter-icon__symbol'], styles['symbol']].join( ' ' )
-                }>filter_alt</span>
+            {!showTextAndSymbol
+                ? (
+                    <>
+                        <span className={styles['filter-icon__small']}>Show:</span>
+                        <span className={styles['text']}>All</span>
+                        <span className={symbolClass}>{chevronSymbol}</span>
+                    </>
+                ) : (
+                    <span className={symbolClass}>filter_alt</span>
+                )
             }
         </button>
     )

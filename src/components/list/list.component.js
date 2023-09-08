@@ -5,17 +5,20 @@ import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 
 const List = ( { fakeItems, items, direction, dropdownId } ) => {
     const dispatch = useDispatch()
-    // Set classnames
-    const className = direction === 'vertical'
+
+    // Set list classnames based on the direction
+    const listClassNames = direction === 'vertical'
         ? [styles['list'], styles['list--vertical']].join( ' ' )
         : styles['list']
 
+    // Handle click to hide the dropdown panel when click on ITEM
     const handleClick = () => {
-        dispatch(setIsDropdownVisible({ dropdownId, isVisible: false } ))
+        dispatch( setIsDropdownVisible( { dropdownId, isVisible: false } ) )
     }
 
     return (
-        <ul className={className}>
+        <ul className={listClassNames}>
+            {/* Show fake items if exist */}
             {fakeItems?.map( ( item, index ) => (
                 <li
                     key={index}
@@ -28,13 +31,15 @@ const List = ( { fakeItems, items, direction, dropdownId } ) => {
                     />
                 </li>
             ) )}
+
+            {/* Show items if exist */}
             {items?.map( ( item, index ) => (
                 <li
                     key={index}
                     className={styles['list__item']}
                     onClick={handleClick}
                 >
-                    <span className={[styles['item__symbol'], styles['symbol']].join( ' ' )}>
+                    <span className={`${styles['item__symbol']} ${styles['symbol']}`}>
                         {item.symbol}
                     </span>
                     <span className={styles['item__text']}>

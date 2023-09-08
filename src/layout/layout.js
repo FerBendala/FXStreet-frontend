@@ -13,9 +13,15 @@ const Layout = () => {
 
     return (
         <div className={styles['layout']}>
+            {/* Aside bar */}
             <Aside />
+
+            {/* Main */}
             <main className={styles['layout__main']}>
+                {/* Show a type of header depending on device */}
                 {!isMobile ? <Header /> : <HeaderMobile />}
+
+                {/* Content */}
                 <section className={styles['layout__main__content']}>
                     <Outlet />
                     <Widget />

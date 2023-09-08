@@ -9,22 +9,22 @@
 
     &__main {
         &__content {
-            @include m.grid($gc: minmax(f.em(500), 1fr) minmax(0, f.em(412)), $gap: f.em(20));
+            @include m.grid($gc: minmax(f.em(500), 1fr) minmax(0, f.em(412)));
 
             height: calc(100vh - #{f.em(65)});
-            padding: f.em(24);
         }
     }
 
     // Responsive
     @include m.media(laptop) {
-        display: block;
+        @include m.grid($gc: minmax(0, 1fr));
         height: auto;
 
         &__main {
             height: auto;
             &__content {
-                @include m.grid($gc: minmax(0, 1fr));
+                @include m.grid($gc: minmax(0, 1fr), $gap: f.em(24));
+
                 height: auto;
             }
         }

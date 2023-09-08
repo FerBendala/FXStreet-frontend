@@ -6,7 +6,7 @@ import variables from 'variablesJS'
 import styles from './aside.module.scss'
 
 const Aside = () => {
-    // List Options
+    // List options array
     const types = [
         { type: 'line', color: variables['white'], width: 111 },
         { type: 'line', color: variables['gray-300'], width: 111, },
@@ -24,7 +24,7 @@ const Aside = () => {
                 className={styles['aside__logo']}
             />
 
-            {/* List Options */}
+            {/* List options */}
             <List fakeItems={types} direction='vertical' />
         </aside>
     )

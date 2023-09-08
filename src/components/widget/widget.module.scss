@@ -4,6 +4,9 @@
 
 .widget {
     @include m.flex($fd: column, $gap: f.em(24));
+
+    padding: f.em(24) f.em(24) f.em(24) f.em(12);
+
     overflow: hidden;
 
     &__positive {
@@ -14,11 +17,17 @@
 
         background-color: $color-blue-200;
     }
+
     &__negative {
         @include m.flex($ai: center, $jc: center);
 
         padding: f.em(15) 0;
         border: solid f.em(2) $color-blue-200;
         border-radius: f.em(4);
+    }
+
+    // Responsive
+    @include m.media(laptop) {
+        padding: 0 f.em(16) f.em(16);
     }
 }

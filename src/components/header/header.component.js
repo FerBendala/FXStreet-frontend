@@ -5,7 +5,7 @@ import variables from 'variablesJS'
 import styles from './header.module.scss'
 
 const Header = () => {
-    // List Options
+    // List options array
     const types = [
         { type: 'line', color: variables['orange-100'], width: 136 },
         { type: 'circle', color: variables['gray-500'] },
@@ -21,7 +21,7 @@ const Header = () => {
                     width={136}
                 />
 
-                {/* List Options */}
+                {/* List options */}
                 <List fakeItems={types} />
             </nav>
         </header>

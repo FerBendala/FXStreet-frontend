@@ -9,23 +9,23 @@ import styles from './dropdown-panel.module.scss'
 const DropdownPanel = ( { items, title, form, position, dropdownId } ) => {
     const dispatch = useDispatch()
 
+    // Close dropdown clicking on header button (if has header)
     const closeDropdown = () => {
         dispatch( setIsDropdownVisible( { dropdownId, isVisible: false } ) )
     }
 
+    // It's necesary prove a position
+    if ( !position ) {
+        return null
+    }
+
     return (
-        <div className={[
-            styles['dropdown'],
-            styles[`dropdown--${position}`],
-        ].join( ' ' )}>
+        <div className={`${styles['dropdown']} ${styles[`dropdown--${position}`]}`}>
             {/* Header if exists */}
             {title &&
                 <header className={styles['dropdown__header']}>
                     <button
-                        className={[
-                            styles['dropdown__header__button'],
-                            styles['symbol']
-                        ].join( ' ' )}
+                        className={`${styles['dropdown__header__button']} ${styles['symbol']}`}
                         onClick={closeDropdown}
                     >
                         arrow_back

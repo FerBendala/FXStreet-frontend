@@ -13,8 +13,9 @@ const FakeItem = ( { color, type = 'all', width } ) => {
     const classNames = classOrder[type] || []
 
     // Set width for lines (circles have always the same size)
-    const setWidth = ( item ) =>
+    const setWidth = ( item ) => {
         ( type === 'all' && item === 'line' ) || ( item === 'line' && width )
+    }
 
     return (
         <div className={styles['fake-item']}>

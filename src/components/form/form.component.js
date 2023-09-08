@@ -6,14 +6,17 @@ import { setIsDropdownVisible } from '../../redux/reducers/global-reducer'
 const Form = ( { items, dropdownId } ) => {
     const [selectedItem, setSelectedItem] = useState( null )
     const dispatch = useDispatch()
+    const isButtonDisabled = selectedItem === null
 
+    // Handle radio buttons
     const handleRadioChange = ( index ) => {
         setSelectedItem( index )
     }
 
+    // Close modal when form is submitted
     const handleSubmit = ( event ) => {
         event.preventDefault()
-        dispatch(setIsDropdownVisible({ dropdownId, isVisible: false } ))
+        dispatch( setIsDropdownVisible( { dropdownId, isVisible: false } ) )
     }
 
     return (
@@ -21,6 +24,7 @@ const Form = ( { items, dropdownId } ) => {
             className={styles['form']}
             onSubmit={handleSubmit}
         >
+            {/* Map radio button inputs of the form */}
             {items.map( ( item, index ) => (
                 <label
                     key={index}
@@ -33,7 +37,7 @@ const Form = ( { items, dropdownId } ) => {
                         onChange={() => handleRadioChange( index )}
                     />
                     <span className={styles['form__label__text']}>
-                        {item.text}
+                        {item}
                     </span>
                 </label>
             ) )}
@@ -41,7 +45,7 @@ const Form = ( { items, dropdownId } ) => {
             <button
                 type='submit'
                 className={styles['form__button']}
-                disabled={selectedItem === null}
+                disabled={isButtonDisabled}
             >
                 <span className={styles['form__button__text']}>Hide content</span>
             </button>

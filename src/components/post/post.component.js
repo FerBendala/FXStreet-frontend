@@ -5,15 +5,13 @@ import PostFooter from '../post-footer/post-footer.component'
 
 import styles from './post.module.scss'
 
-const Post = ( { post } ) => {
-    return (
-        <article className={styles['post']}>
-            <PostHeader post={post} />
-            <PostAuthor post={post} />
-            <PostContent post={post} />
-            <PostFooter post={post} />
-        </article>
-    )
-}
+const Post = ( { post } ) => (
+    <article className={styles['post']}>
+        <PostHeader post={post} />
+        <PostAuthor post={post} />
+        <PostContent post={post} />
+        <PostFooter post={post} />
+    </article>
+)
 
 export default Post

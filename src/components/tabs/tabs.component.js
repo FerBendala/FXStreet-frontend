@@ -9,28 +9,32 @@ const Tabs = () => {
     const activeTab = useSelector( state => state.global.activeTab )
     const dispatch = useDispatch()
 
+    // Check if tab name its equal to active tab
+    const applyActiveToTab = ( tabName ) => activeTab === tabName
+
     // Filter
     const dropdownItems = [
         { text: 'Hide', symbol: 'visibility_off' },
         { text: 'Improve my feed', symbol: 'tune' },
     ]
 
-    // Función para manejar el clic en un tab
+    // Dispatch redux and set the active tag
     const handleTabClick = ( text ) => {
         dispatch( setActiveTab( text ) )
     }
 
     return (
         <div className={styles['tabs']}>
+            {/* Tabs */}
             <Tab
                 text='Latest'
-                active={activeTab === 'Latest'} // Aplica la clase 'active' si es el tab activo
-                onClick={() => handleTabClick( 'Latest' )} // Maneja el clic en el tab
+                active={applyActiveToTab( 'Latest' )}
+                onClick={() => handleTabClick( 'Latest' )}
             />
             <Tab
                 text='Popular'
-                active={activeTab === 'Popular'} // Aplica la clase 'active' si es el tab activo
-                onClick={() => handleTabClick( 'Popular' )} // Maneja el clic en el tab
+                active={applyActiveToTab( 'Popular' )}
+                onClick={() => handleTabClick( 'Popular' )}
             />
 
             {/* Filter */}

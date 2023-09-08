@@ -1,6 +1,6 @@
 import Layout from './layout/layout'
 
-import Home from './pages/home/home.page'
+import Home from './pages/home.page'
 import PageNotFound from './pages/not-found.page'
 
 export const routes = [{

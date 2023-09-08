@@ -6,7 +6,7 @@ import variables from 'variablesJS'
 import styles from './header-mobile.module.scss'
 
 const HeaderMobile = () => {
-    // List Options
+    // List options array
     const types = [
         { type: 'circle', color: variables['gray-300'] },
         { type: 'circle', color: variables['gray-300'] }
@@ -21,7 +21,7 @@ const HeaderMobile = () => {
                     className={styles['header__logo']}
                 />
 
-                {/* List Options */}
+                {/* List options */}
                 <List fakeItems={types} />
             </nav>
         </header>

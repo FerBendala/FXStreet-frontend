@@ -2,7 +2,6 @@
 @use "mixins" as m;
 @use "functions" as f;
 
-
 .filter-icon {
     @include m.flex($ai: center, $gap: f.em(8));
 
@@ -31,11 +30,7 @@
         @include m.flex-child($as: center);
 
         font-family: $font-symbols;
-        font-size: f.em(25);
-
-        &--small {
-            font-size: f.em(21);
-        }
+        font-size: f.em(21);
     }
 
     &:hover {
