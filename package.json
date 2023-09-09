@@ -6,7 +6,7 @@
     "scripts": {
         "start": "webpack serve --mode development --open",
         "build": "webpack --mode production",
-        "serve": "http-server ./build -p 8001 -o",
+        "serve": "http-server ./build -p 8000 -o",
         "test": "jest --verbose --runInBand --coverage --config=jest.config.js",
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
