@@ -14,6 +14,7 @@ const Tab = ( { text, active, onClick } ) => {
             id={id}
             className={tabClasses}
             onClick={() => onClick( text )}
+            data-testid='tab-button'
         >
             <span className={styles['tab__text']}>
                 {text}

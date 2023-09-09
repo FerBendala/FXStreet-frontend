@@ -4,7 +4,10 @@ import variables from 'variablesJS'
 import styles from './widget.module.scss'
 
 const Widget = () => (
-    <aside className={styles['widget']}>
+    <aside
+        className={styles['widget']}
+        data-testid='widget-component'
+    >
         {/* Section (positive color in scss) */}
         <div className={styles['widget__positive']}>
             <FakeItem

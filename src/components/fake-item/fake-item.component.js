@@ -14,7 +14,7 @@ const FakeItem = ( { color, type = 'all', width } ) => {
 
     // Set width for lines (circles have always the same size)
     const setWidth = ( item ) => {
-        ( type === 'all' && item === 'line' ) || ( item === 'line' && width )
+        return ( type === 'all' && item === 'line' ) || ( item === 'line' && width )
     }
 
     return (
@@ -27,6 +27,7 @@ const FakeItem = ( { color, type = 'all', width } ) => {
                         backgroundColor: color,
                         width: setWidth( item ) ? width : 'auto',
                     }}
+                    data-testid={`fake-${item}`}
                 ></span>
             ) )}
         </div>

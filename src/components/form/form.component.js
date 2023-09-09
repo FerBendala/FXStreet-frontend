@@ -23,6 +23,7 @@ const Form = ( { items, dropdownId } ) => {
         <form
             className={styles['form']}
             onSubmit={handleSubmit}
+            data-testid='form-component'
         >
             {/* Map radio button inputs of the form */}
             {items.map( ( item, index ) => (

@@ -7,7 +7,11 @@ const Button = ( { symbol, text, onClick, active } ) => {
         : styles['button']
 
     return (
-        <button onClick={onClick} className={buttonClass}>
+        <button
+            onClick={onClick}
+            className={buttonClass}
+            data-active={active}
+        >
             {/* If has symbol */}
             {symbol && (
                 <span className={`${styles['symbols']} ${styles['button__symbol']}`}>

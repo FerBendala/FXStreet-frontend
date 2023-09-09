@@ -23,7 +23,10 @@ const DropdownPanel = ( { items, title, form, position, dropdownId } ) => {
         <div className={`${styles['dropdown']} ${styles[`dropdown--${position}`]}`}>
             {/* Header if exists */}
             {title &&
-                <header className={styles['dropdown__header']}>
+                <header
+                    className={styles['dropdown__header']}
+                    data-testid='form-component-header'
+                >
                     <button
                         className={`${styles['dropdown__header__button']} ${styles['symbol']}`}
                         onClick={closeDropdown}

@@ -14,7 +14,10 @@ const Header = () => {
     ]
 
     return (
-        <header className={styles['header']}>
+        <header
+            className={styles['header']}
+            data-testid='header-component'
+        >
             <nav className={styles['header__container']}>
                 <FakeItem
                     color={variables['blue-200']}

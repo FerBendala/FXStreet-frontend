@@ -17,7 +17,7 @@ const List = ( { fakeItems, items, direction, dropdownId } ) => {
     }
 
     return (
-        <ul className={listClassNames}>
+        <ul className={listClassNames} data-testid='list-component'>
             {/* Show fake items if exist */}
             {fakeItems?.map( ( item, index ) => (
                 <li
@@ -38,6 +38,7 @@ const List = ( { fakeItems, items, direction, dropdownId } ) => {
                     key={index}
                     className={styles['list__item']}
                     onClick={handleClick}
+                    data-testid='fake-item'
                 >
                     <span className={`${styles['item__symbol']} ${styles['symbol']}`}>
                         {item.symbol}

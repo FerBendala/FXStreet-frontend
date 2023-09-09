@@ -88,7 +88,7 @@ const config = ( env, argv ) => {
                             loader: 'sass-loader',
                             options: {
                                 sassOptions: {
-                                    includePaths: [path.resolve( __dirname, 'src/assets/scss/partials' )],
+                                    includePaths: [path.resolve( __dirname, './src/assets/scss/partials' )],
                                 },
                             },
                         },

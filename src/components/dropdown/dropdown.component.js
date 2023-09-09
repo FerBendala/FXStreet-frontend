@@ -42,11 +42,18 @@ const Dropdown = ( { dropdownItems, form, symbol, title, position, dropdownId } 
     }
 
     return (
-        <div className={styles['dropdown']} ref={dropdownRef}>
+        <div
+            className={styles['dropdown']}
+            ref={dropdownRef}
+            data-testid='dropdown-component'
+        >
             {/* Dropdown button */}
             {symbol
                 ? (
-                    <button className={styles['dropdown__button']} onClick={handleDropdown}>
+                    <button
+                        className={styles['dropdown__button']}
+                        onClick={handleDropdown}
+                    >
                         <span className={`${styles['dropdown__button__symbol']} ${styles['symbol']}`}>
                             {symbol}
                         </span>

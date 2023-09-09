@@ -28,7 +28,10 @@ const Posts = () => {
     return (
         <div className={styles['posts']}>
             {reversedPosts.map( post =>
-                <Post key={post.id} post={post} />
+                <Post
+                    key={post.id}
+                    post={post}
+                />
             )}
         </div>
     )

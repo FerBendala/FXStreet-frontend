@@ -6,7 +6,10 @@ import PostFooter from '../post-footer/post-footer.component'
 import styles from './post.module.scss'
 
 const Post = ( { post } ) => (
-    <article className={styles['post']}>
+    <article
+        className={styles['post']}
+        data-testid='post-component'
+    >
         <PostHeader post={post} />
         <PostAuthor post={post} />
         <PostContent post={post} />

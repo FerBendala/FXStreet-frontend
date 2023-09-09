@@ -9,6 +9,7 @@ const FilterIcon = ( { isDropdownVisible, onClick } ) => {
     // Symbol class and type
     const symbolClass = `${styles['filter-icon__symbol']} ${styles['symbol']}`
     const chevronSymbol = isDropdownVisible ? 'keyboard_arrow_up' : 'expand_more'
+    const symbolName = showTextAndSymbol ? 'filter_alt' : chevronSymbol
 
     return (
         <button
@@ -20,10 +21,10 @@ const FilterIcon = ( { isDropdownVisible, onClick } ) => {
                     <>
                         <span className={styles['filter-icon__small']}>Show:</span>
                         <span className={styles['text']}>All</span>
-                        <span className={symbolClass}>{chevronSymbol}</span>
+                        <span className={symbolClass}>{symbolName}</span>
                     </>
                 ) : (
-                    <span className={symbolClass}>filter_alt</span>
+                    <span className={symbolClass}>{symbolName}</span>
                 )
             }
         </button>
