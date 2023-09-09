@@ -44,3 +44,7 @@ npm run test
 ```bash
 npm run test tests/{folder}/{file}.test.js
 ```
+
+## Netlify
+If you want to see the deployed version on Netlify, you can visit the following URL:
+https://64fcc820fa00dc1e57fbbed4--gorgeous-profiterole-75d87f.netlify.app/

@@ -7,7 +7,7 @@ import Tab from './tab.component'
 const mockOnClick = jest.fn()
 
 describe( 'Tab Component', () => {
-    it( 'renders a tab with the correct text and without the "active" class by default', () => {
+    test( 'renders a tab with the correct text and without the "active" class by default', () => {
         render(
             <Tab text="Tab 1" active={false} onClick={mockOnClick} />
         )
@@ -18,7 +18,7 @@ describe( 'Tab Component', () => {
         expect( tabText ).toBeInTheDocument()
     } )
 
-    it( 'calls the onClick function when the tab is clicked', () => {
+    test( 'calls the onClick function when the tab is clicked', () => {
         render(
             <Tab text="Tab 3" active={false} onClick={mockOnClick} />
         )
